@@ -4,12 +4,13 @@ import { ContextDataAuth } from './../context-data/context-data.auth';
 
 function AuthPage() {
 
+    var data;
     const auth = useContext(ContextDataAuth);
-    const { request } = useHttp();
+    const { request, error } = useHttp();
     const [form, setForm] = useState({
         user_login: '',
         user_password: ''
-    })
+    }) 
 
     const changeHandler = event => {
         setForm({ ...form, [event.target.name]: event.target.value });
@@ -18,7 +19,7 @@ function AuthPage() {
 
     const loginHandler = async () => {
         try {
-            const data = request('/api/auth', 'POST', { ...form });
+            data = await request('/api/auth', 'POST', { ...form });
             auth.login(data.token, data.userId);
         } catch (e) { }
     }
@@ -42,6 +43,7 @@ function AuthPage() {
                 <button
                     onClick={loginHandler}
                 >Войти</button>
+                <p>{ error }</p>
             </div>
         </>
     )
