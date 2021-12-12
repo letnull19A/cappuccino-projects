@@ -1,0 +1,17 @@
+{
+    "port": 80,
+    "jwtSecretKey": "mTde8A",
+    "database": {
+        "type": "mongoDB",
+        "ip": "127.0.0.1",
+        "port": 8080,
+        "mongoURI": "mongodb+srv://admin:admin1@cluster0.wul1g.mongodb.net/SystemDiary?retryWrites=true&w=majority",
+        "username": "root",
+        "password": ""
+    },
+    "status": {
+        "student": "",
+        "teacher": "",
+        "administrator": ""
+    }
+}
