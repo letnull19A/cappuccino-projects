@@ -1,3 +1,3 @@
 @echo off
 title "Start server"
-npm start dev
+npm run dev

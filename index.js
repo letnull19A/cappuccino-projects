@@ -20,4 +20,4 @@ function start() {
 
 start();
 
-app.listen(config.get("port"), () => console.log('[SERVER] Server started'));
+app.listen(config.get("port"), () => console.log(`[SERVER] Server started on ${config.get("port")} port`));

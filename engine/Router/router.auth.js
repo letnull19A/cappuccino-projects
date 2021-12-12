@@ -37,23 +37,25 @@ router.post('/auth',
         
             const { user_login, user_password } = req.body;
         
-            const isExist = await User.findOne({ user_login });
+            const user = await User.findOne({ user_login });
         
-            if (!isExist)
+            if (!user)
                 return res.status(400).json({ message: "Пльзователь с такими данными не существует!" });
-        
-            console.log(`[SERVER] ${bcrypt.compare(req.body.user_password, User.user_password)}`);
 
-            var isMatch = await bcrypt.compare(req.body.user_password, User.user_password);
+            var isMatch = await bcrypt.compare(user_password, user.user_password);
         
+            console.log(`[DEBUG] ${isMatch}`);
+
             if (!isMatch)
-                return res.status(400).json({ message: "Пользователь не найден!" });
+                return res.status(400).json({ message });
         
             const token = jwt.sign(
                 { userId: user.id },
                 config.get('jwtSecretKey'),
-                { expresIn: '1m' }
+                { expiresIn: '1h' }
             );
+
+            res.json({ token, userId: user.id });
             
         } catch (e) {
             return res.status(500).json({message: "Auth error! " + e});

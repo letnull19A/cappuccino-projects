@@ -46,7 +46,7 @@ router.post('/reg',
 
         const { user_name, user_surname, user_fatherName, user_login, user_password, user_email, user_status } = req.body;
 
-        const isExist = await Users.findOne({ "user_login": user_login });
+        const isExist = await Users.findOne({ user_login });
 
         if (!isExist) {
 
