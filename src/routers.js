@@ -1,33 +1,32 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import AuthPage from './pages/page.auth';
 import RegistrationPage from './pages/page.registration';
 import NotFoundPage from './pages/page.notfoud';
 import ProfilePage from './pages/page.profile';
+import MainPage from './pages/page.main';
+import DiaryPage from './pages/page.diary';
 
 export const Routing = isAuthenticated => {
     if (isAuthenticated) {
         return (
-            <Switch>
-                <Route path="/profile">
-                    <ProfilePage />
-                </Route>
-                <Route path="/reg">
-                    <RegistrationPage />
-                </Route>
-                <Route path="/notfound">
-                    <NotFoundPage />
-                </Route>
-                <Redirect to="/profile"/>
-            </Switch>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/Auth" element={<Navigate to="/Profile/Me" />} />
+                    <Route exact path="/Profile/:id" element={<ProfilePage />} />
+                    <Route path="/Registration" element={<RegistrationPage />} />
+                    <Route path="/Notfound" element={<NotFoundPage />} />
+                    <Route path="/Main" element={<MainPage />} />
+                    <Route path="/Diary" element={<DiaryPage />} />
+                </Routes>
+            </BrowserRouter>
         );
     }
     return (
-        <Switch>
-            <Route path="/" exact>
-                <AuthPage />
-            </Route>
-            <Redirect to="/"></Redirect>
-        </Switch>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/Auth" element={<AuthPage />} />
+            </Routes>
+        </BrowserRouter>
     )
 }

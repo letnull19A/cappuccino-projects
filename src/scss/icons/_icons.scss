@@ -1,0 +1,39 @@
+@mixin default($image) {
+    background-image: url($image);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+}
+
+.icon-main {
+    @include default('./../../images/icons/icon-main.svg');
+}
+
+.icon-profile {
+    @include default('./../../images/icons/icon-profile.svg');
+}
+
+.icon-discipline {
+    @include default('./../../images/icons/icon-discipline.svg');
+}
+
+.icon-diary {
+    @include default('./../../images/icons/icon-diary.svg');
+}
+
+.icon-notification {
+    @include default('./../../images/icons/icon-notification.svg');
+}
+
+.icon-timetable {
+    @include default('./../../images/icons/icon-timetable.svg');
+}
+
+.icon-materials {
+    @include default('./../../images/icons/icon-materials.svg');
+}

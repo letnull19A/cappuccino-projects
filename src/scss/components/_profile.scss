@@ -1,0 +1,27 @@
+.profile-content {
+    width: 100%;
+    margin-top: 30px;
+
+    &__avatar, .avatar {
+        width: 230px;
+        height: 230px;
+    }
+
+    &__information, &__study-information  {
+        width: 100%;
+        height: auto;
+    }
+
+    .information {
+        width: 45%;
+        height: auto;
+        border: 1px solid blue;
+    }
+
+    .study-information {
+        width: 35%;
+        height: auto;
+        border: 1px solid red;
+    }
+
+}

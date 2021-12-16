@@ -23,7 +23,7 @@ function RegistrationPage() {
 
     const loginHandler = async () => {
         try {
-        const data = await request('/api/reg', 'POST', {...form});
+        const data = await request('/api/e/reg', 'POST', {...form});
         auth.login(data.token, data.userId);
         } catch (e) {}
     }
