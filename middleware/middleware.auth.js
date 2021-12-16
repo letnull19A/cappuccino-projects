@@ -1,7 +1,7 @@
 const jwr = require('jsonwebtoken');
 const config = require('config');
 
-modele.exports = (req, res, next) => {
+module.exports = (req, res, next) => {
     if (req.method === "OPTIONS") {
         return next;
     }

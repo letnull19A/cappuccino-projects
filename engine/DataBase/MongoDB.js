@@ -4,6 +4,9 @@ const config = require('config');
 module.exports = class MongoDB {
 
     async Connect() {
+
+        console.log('[SERVER] Try connection...');
+
         try {
             await mongoose.connect(config.get("database.mongoURI"), {
                 useNewUrlParser: true,

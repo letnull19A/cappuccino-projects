@@ -8,6 +8,7 @@ const schema = new Schema({
     user_password: {type: String, required: true},
     user_email: {type: String, required: true, unique: true},
     user_status: {type: Schema.Types.Number, required: true},
+    user_contect: {type: Object, required: false}
 });
 
 module.exports = model('Users', schema);

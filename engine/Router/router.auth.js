@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
-const User = require('./../Models/User');
+const User = require('./../Models/model.user');
 const router = Router();
 
 router.post('/auth',
@@ -44,7 +44,6 @@ router.post('/auth',
 
             var isMatch = await bcrypt.compare(user_password, user.user_password);
         
-            console.log(`[DEBUG] ${isMatch}`);
 
             if (!isMatch)
                 return res.status(400).json({ message });
