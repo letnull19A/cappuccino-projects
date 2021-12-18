@@ -1,14 +1,13 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 
 const schema = new Schema({
-    user_name : {type: String, required: true},
-    user_surname: {type: String, required: true},
-    user_fatherName: {type: String, required: true},
-    user_login: {type: String, required: true, unique: true},
-    user_password: {type: String, required: true},
-    user_email: {type: String, required: true, unique: true},
-    user_status: {type: Schema.Types.Number, required: true},
-    user_contect: {type: Object, required: false}
+    user_name : {type: String},
+    user_surname: {type: String},
+    user_fatherName: {type: String},
+    user_login: {type: String, unique: true},
+    user_password: {type: String},
+    user_status: {type: Number},
+    user_contact: [{type: Types.ObjectId, ref: 'Contacts'}]
 });
 
 module.exports = model('Users', schema);
