@@ -15,7 +15,6 @@ function ProfilePage() {
     const { userId, token, auth } = useContext(ContextDataAuth);
     const { request } = useHttp();
     var id = useParams().id;
-    var fetched;
 
     const getUserData = useCallback(async () => {
 
@@ -23,11 +22,7 @@ function ProfilePage() {
 
             if (id === 'Me') { id = userId; }
 
-            fetched = await request(`/api/d/profile/${id}`, 'GET', null, { Authorization: `Bearer ${token}` });
-
-            console.log('[FETCHED]' + fetched);
-
-            setData(fetched);
+            setData(await request(`/api/profile/${id}`, 'GET', null, { Authorization: `Bearer ${token}` }));
 
         } catch (e) { }
 
@@ -50,7 +45,7 @@ function ProfilePage() {
         <div className='flex row'>
             <Menu />
             <Scrollbars style={{ height: '100vh', renderThumbHorizontal: null }}>
-                <Container element={<Profile data={fetched} />} />
+                <Container element={data && <Profile data={data} />} />
             </Scrollbars>
         </div>
 

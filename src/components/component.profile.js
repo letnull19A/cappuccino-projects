@@ -3,7 +3,9 @@ import "./../scss/components/_profile.scss";
 
 function Profile(props) {
 
-    console.log(props);
+    const currentData = props.data;
+
+    console.log(currentData);
 
     return (
         <div className='profile-content flex row space-between'>
@@ -12,10 +14,10 @@ function Profile(props) {
             </div>
             <div className='information'>
                 <div className='profile-content__information'>
-                    <h2>Status {props.data}</h2>
-                    <h1>Name Surname FatherName</h1>
-                    <p>E-Mail</p>
-                    <p>Telephone</p>
+                    <h2>Status</h2>
+                    <h1>{currentData.user_surname} {currentData.user_name} {currentData.user_fatherName}</h1>
+                    <p>E-Mail: {currentData.user_contact.email}</p>
+                    <p>Телефон: {currentData.user_contact.contact_phone}</p>
                 </div>
             </div>
             <div className='study-information'>

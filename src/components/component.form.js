@@ -10,6 +10,7 @@ function Form() {
     const navigate = useNavigate();
     const auth = useContext(ContextDataAuth);
     const { request, error } = useHttp();
+
     const [form, setForm] = useState({
         user_login: '',
         user_password: ''
@@ -22,7 +23,7 @@ function Form() {
 
     const loginHandler = async () => {
         try {
-            data = await request('/api/e/auth', 'POST', { ...form });
+            data = await request('/api/auth', 'POST', { ...form });
             auth.login(data.token, data.userId);
             navigate('/Profile/Me');
         } catch (e) { }

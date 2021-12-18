@@ -27,6 +27,7 @@ export const Routing = isAuthenticated => {
             <Routes>
                 <Route path="/Auth" element={<AuthPage />} />
             </Routes>
+            <Navigate to="/Auth"/>
         </BrowserRouter>
     )
 }
