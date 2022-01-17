@@ -1,9 +1,11 @@
-import { React, useEffect } from 'react';
-import Container from './../components/component.container';
-import Form from './../components/component.form';
-import "./../scss/other/_backgroundAuth.scss";
+import { React, useEffect } from 'react'
+import Container from '@Components/Container'
+import Form from './../components/form/component.form'
+import "./../scss/other/_backgroundAuth.scss"
 
-function AuthPage() {
+function AuthPage(props) {
+
+    document.title = props.title;
 
     useEffect(() => {
         document.body.classList.remove("colorless");

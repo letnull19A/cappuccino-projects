@@ -1,11 +1,12 @@
 import React, { useContext, useEffect } from 'react'
+import { useNavigate } from 'react-router'
 import { Scrollbars } from 'react-custom-scrollbars'
 import Menu from '@Components/Menu'
 import "./../scss/other/_backgroundSimple.scss"
 import Container from '@Components/Container'
 import { ContextPage } from '../context/context.page'
 
-function DiaryPage(props) {
+function MaterialsPage(props) {
 
     const page = useContext(ContextPage);
 
@@ -17,10 +18,10 @@ function DiaryPage(props) {
         <div className='flex row'>
             <Menu />
             <Scrollbars style={{ height: '100vh', renderThumbHorizontal: null }}>
-                <Container element={ <p>Diary Page</p> } />
+                <Container element={ <p>Materials Page</p> } />
             </Scrollbars>
         </div>
     );
 }
 
-export default DiaryPage;
+export default MaterialsPage;

@@ -1,15 +1,23 @@
-import React, { useContext } from 'react';
-import { useNavigate } from 'react-router';
-import { Scrollbars } from 'react-custom-scrollbars';
-import Menu from './../components/component.menu';
-import "./../scss/other/_backgroundSimple.scss";
+import React, { useContext, useEffect } from 'react'
+import { Scrollbars } from 'react-custom-scrollbars'
+import Menu from '@Components/Menu'
+import "./../scss/other/_backgroundSimple.scss"
+import Container from '@Components/Container'
+import { ContextPage } from '../context/context.page'
 
-function MainPage() {
+function MainPage(props) {
+
+    const page = useContext(ContextPage);
+
+    useEffect(() => {
+        page.changeTitle(props.title);
+    })
+
     return (
         <div className='flex row'>
             <Menu />
-            <Scrollbars style={{ renderThumbHorizontal: null }}>
-                <p>Main Page</p>
+            <Scrollbars style={{ height: '100vh', renderThumbHorizontal: null }}>
+                <Container element={<p>Main page</p>} />
             </Scrollbars>
         </div>
     );

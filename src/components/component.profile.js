@@ -5,8 +5,6 @@ function Profile(props) {
 
     const currentData = props.data;
 
-    console.log(currentData);
-
     return (
         <div className='profile-content flex row space-between'>
             <div className='avatar'>
@@ -14,10 +12,10 @@ function Profile(props) {
             </div>
             <div className='information'>
                 <div className='profile-content__information'>
-                    <h2>Status</h2>
-                    <h1>{currentData.user_surname} {currentData.user_name} {currentData.user_fatherName}</h1>
-                    <p>E-Mail: {currentData.user_contact.email}</p>
-                    <p>Телефон: {currentData.user_contact.contact_phone}</p>
+                    <h2>{currentData.userRole.role_title}</h2>
+                    <h1>{currentData.user.user_surname} {currentData.user.user_name} {currentData.user.user_fatherName}</h1>
+                    <p>E-Mail: {currentData.userContact.contact_email}</p>
+                    <p>Телефон: </p>
                 </div>
             </div>
             <div className='study-information'>

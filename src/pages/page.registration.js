@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import { useHttp } from './../hooks/hooks.http';
-import { ContextDataAuth } from './../context-data/context-data.auth';
+import { ContextDataAuth } from '@Context/DataAuth';
 
 function RegistrationPage() {
 
@@ -23,7 +23,7 @@ function RegistrationPage() {
 
     const loginHandler = async () => {
         try {
-        const data = await request('/api/e/reg', 'POST', {...form});
+        const data = await request('/api/authificated/reg', 'POST', {...form});
         auth.login(data.token, data.userId);
         } catch (e) {}
     }

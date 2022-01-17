@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^6.4.3",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.24.0",
     "config": "^3.3.6",
+    "craco": "0.0.3",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-custom-scrollbars": "^4.2.1",
@@ -16,12 +18,14 @@
     "react-router": "^6.1.1",
     "react-router-dom": "^6.1.1",
     "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "@components/container": "./src/components/container/component.container.js",
+    "@components/form": "./src/components/form/component.form.js"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -42,5 +46,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:5000",
+  "devDependencies": {
+    "typescript": "^4.5.4"
+  }
 }

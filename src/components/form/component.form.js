@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router';
-import { useHttp } from './../hooks/hooks.http';
-import { ContextDataAuth } from './../context-data/context-data.auth';
-import "./../scss/components/_form.scss";
+import { useHttp } from './../../hooks/hooks.http';
+import { ContextDataAuth } from '@Context/DataAuth';
+import "./scss/_form.scss";
 
 function Form() {
 
@@ -23,7 +23,7 @@ function Form() {
 
     const loginHandler = async () => {
         try {
-            data = await request('/api/auth', 'POST', { ...form });
+            data = await request('/api/started/auth', 'POST', { ...form });
             auth.login(data.token, data.userId);
             navigate('/Profile/Me');
         } catch (e) { }

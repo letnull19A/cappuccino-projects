@@ -1,5 +1,5 @@
 import { React } from 'react';
-import "./../scss/foundation/_container.scss";
+import "./scss/_container.scss";
 
 function Container(props) {
     return(

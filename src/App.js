@@ -1,7 +1,7 @@
 import React from "react";
 import { Routing } from "./routers";
 import { useAuth } from './hooks/hook.auth'
-import { ContextDataAuth } from "./context-data/context-data.auth"
+import { ContextDataAuth } from "./context/context.auth"
 import "./scss/main.scss";
 
 function App() {

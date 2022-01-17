@@ -1,11 +1,10 @@
-import React, { useContext, useEffect } from 'react'
-import { Scrollbars } from 'react-custom-scrollbars'
+import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { Scrollbars } from 'react-custom-scrollbars';
 import Menu from '@Components/Menu'
-import "./../scss/other/_backgroundSimple.scss"
 import Container from '@Components/Container'
-import { ContextPage } from '../context/context.page'
+import { ContextPage } from '../context/context.page';
 
-function DiaryPage(props) {
+function TimeTablePage(props) {
 
     const page = useContext(ContextPage);
 
@@ -17,10 +16,11 @@ function DiaryPage(props) {
         <div className='flex row'>
             <Menu />
             <Scrollbars style={{ height: '100vh', renderThumbHorizontal: null }}>
-                <Container element={ <p>Diary Page</p> } />
+                <Container element={<p>Time table</p>} />
             </Scrollbars>
         </div>
     );
+
 }
 
-export default DiaryPage;
+export default TimeTablePage;

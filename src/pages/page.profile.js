@@ -1,14 +1,17 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router';
-import { Scrollbars } from 'react-custom-scrollbars';
-import { ContextDataAuth } from './../context-data/context-data.auth';
-import Menu from './../components/component.menu';
-import "./../scss/other/_backgroundSimple.scss";
-import Profile from './../components/component.profile';
-import Container from './../components/component.container';
-import { useHttp } from './../hooks/hooks.http';
+import React, { useCallback, useContext, useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router'
+import { Scrollbars } from 'react-custom-scrollbars'
+import { ContextDataAuth } from '@Context/DataAuth'
+import Menu from '@Components/Menu'
+import Profile from './../components/component.profile'
+import Container from '@Components/Container'
+import { useHttp } from './../hooks/hooks.http'
+import { ContextPage } from '../context/context.page'
+import "./../scss/other/_backgroundSimple.scss"
 
-function ProfilePage() {
+function ProfilePage(props) {
+
+    const page = useContext(ContextPage);
 
     const navigate = useNavigate();
     const [data, setData] = useState(null);
@@ -17,13 +20,9 @@ function ProfilePage() {
     var id = useParams().id;
 
     const getUserData = useCallback(async () => {
-
         try {
-
             if (id === 'Me') { id = userId; }
-
-            setData(await request(`/api/profile/${id}`, 'GET', null, { Authorization: `Bearer ${token}` }));
-
+            setData(await request(`/api/authificated/profile/${id}`, 'GET', null, { Authorization: `Bearer ${token}` }));
         } catch (e) { }
 
     }, [token, id, request]);
@@ -35,8 +34,9 @@ function ProfilePage() {
     }
 
     useEffect(() => {
+        page.changeTitle(props.title);
         getUserData();
-    }, [getUserData]);
+    }, []);
 
     document.body.classList.remove("colorfull");
     document.body.classList.add("colorless");

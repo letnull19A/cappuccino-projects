@@ -1,5 +1,6 @@
 import { React } from 'react';
 import { NavLink, useMatch } from 'react-router-dom';
+import './scss/_list.scss'
 
 function List(props) {
     return (
@@ -23,7 +24,7 @@ function ListItem(props) {
 
                 <div className='list-item__content'>
 
-                    <a className='list-item__content-link' href="#">{props.item.Name}</a>
+                    <a className='list-item__content-link' >{props.item.Name}</a>
 
                 </div>
 
